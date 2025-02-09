@@ -15,3 +15,8 @@ Picking case => we have 2 options of going ahead
 In this pattern we need to check using a for loop inside the recursion. We are checking this because for each index where we either buy or sell we need to check every remaining index to determine if that will yield the maximum profit or not.
 
 Memoization also seems to TLE => need to check Tabulation for optimizations
+`Tabulation`
+> What does a cell in the dp table mean
+A cell in dp stores the profit till that day => which means we would have sold the stock on that day
+        => this means it would have been bought earlier -> thus need to check the profit val for all the earlier days as buying day
+        => once the buy day found we will have to consider the subproblem that what was profit till that buying day with 1 lesser trxn
