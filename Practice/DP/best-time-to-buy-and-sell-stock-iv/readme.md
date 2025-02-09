@@ -13,3 +13,9 @@ Picking case => we have 2 options of going ahead
 > Case 2 => we start from end consider index 6 i.e we sell at the last day, then we need to loop through prev indexes to get the day of buying eg consider index 4 and then the **subproblem** becomes checking for the profit from day 4 to day 0
 
 In this pattern we need to check using a for loop inside the recursion. We are checking this because for each index where we either buy or sell we need to check every remaining index to determine if that will yield the maximum profit or not.
+
+`Tabulation`
+> What does a cell in the dp table mean
+A cell in dp stores the profit till that day => which means we would have sold the stock on that day
+        => this means it would have been bought earlier -> thus need to check the profit val for all the earlier days as buying day
+        => once the buy day found we will have to consider the subproblem that what was profit till that buying day with 1 lesser trxn
