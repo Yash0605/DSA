@@ -1,2 +1,2 @@
 # DSA
-Repo with DSA details
+Repo with DSA details for DP, Trees and Graphs
