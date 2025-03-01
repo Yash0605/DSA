@@ -25,5 +25,3 @@ Initially for the left subtree the values can be present in the range (-inf,root
 Similarly for the right subtree the values can be present in the range (root.val, inf)
 
 Following this as we can down the subtrees, the ranges will change accordingly for each node, based on the parent node and root node values.
-
-
