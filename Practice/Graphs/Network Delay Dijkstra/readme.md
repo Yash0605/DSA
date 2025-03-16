@@ -22,3 +22,6 @@ We will use **priority queue and a distance list** to store the current min valu
 
 Time Complexity : **O(Elog(V))** => log(V) because of priority queue which uses heap data structure. This is an improvement over the Bellman Ford Algo which was O(V*E)
 
+Each vertex is inserted into the priority queue at most once → O(VlogV)
+Each edge is relaxed (processed) once → O(ElogV)
+Overall complexity: O((V+E)logV)=O(ElogV)(since E≥V−1 in a connected graph)
