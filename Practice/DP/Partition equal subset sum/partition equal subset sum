@@ -1,0 +1,76 @@
+class Solution(object):
+    def checkSubsetSum(self, nums, requiredSum, index, dp):
+        # base case
+        if requiredSum == 0:
+            return True
+
+        if index == len(nums):
+            return False
+
+        if dp[index][requiredSum] != -1:
+            return dp[index][requiredSum]
+
+        # pick
+        pick = False
+        if nums[index] <= requiredSum:
+            pick = self.checkSubsetSum(nums, requiredSum - nums[index], index + 1, dp)
+
+        skip = self.checkSubsetSum(nums, requiredSum, index + 1, dp)
+
+        dp[index][requiredSum] = pick or skip
+        return dp[index][requiredSum]
+
+    def canPartition(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        totalSum = sum(nums)
+
+        if totalSum % 2 != 0:
+            return False
+
+        requiredSum = totalSum // 2
+
+        # return self.checkSubsetSum(nums, requiredSum, 0)
+
+        """
+        After drawing the recusrsion tree in the format fn(index, target) and seeing the result we can see that we will have
+        overlapping subproblems => hence we will try to memoize and then tabular approach
+        subset_sum(3, 4)
+            ├── subset_sum(2, 4)      ← exclude 1
+            │   ├── subset_sum(1, 4)
+            │   └── subset_sum(1, 2)
+            │       └── subset_sum(0, 2)
+        ├── subset_sum(2, 3)      ← include 1 (4-1=3)
+                ├── subset_sum(1, 3)
+                └── subset_sum(1, 1)
+                    └── subset_sum(0, 1)
+
+        """
+        # dp = [[-1]*(requiredSum+1) for _ in range(len(nums))]
+        # return self.checkSubsetSum(nums, requiredSum, 0, dp)
+
+        # dp = [[False]*(requiredSum+1) for _ in range(len(nums))]
+        prev, curr = [False] * (requiredSum + 1), [False] * (requiredSum + 1)
+
+        # first row
+        for i in range(requiredSum + 1):
+            if nums[0] == i:
+                # dp[i][j] =True
+                prev[i] = True
+
+        curr = prev[:]
+        for i in range(1, len(nums)):
+            for j in range(1, requiredSum + 1):
+                # pick
+                if nums[i] <= j:
+                    # dp[i][j] = dp[i-1][j-nums[i]]
+                    curr[j] = prev[j - nums[i]]
+
+                curr[j] = curr[j] or prev[j]
+            prev = curr[:]
+
+        # return dp[len(nums)-1][requiredSum]
+        # print(prev)
+        return curr[requiredSum]
