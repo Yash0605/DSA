@@ -23,7 +23,7 @@ else if not above cases we need to check if
 => i+1, j substring palindrome or not
 => i, j-1 substring as well
 
-Memoization would be complex so Tabulation sol directly
+Tabulation sol:
 length => 1 - n
 i => 0 - n-length+1
 j = i+length-1
