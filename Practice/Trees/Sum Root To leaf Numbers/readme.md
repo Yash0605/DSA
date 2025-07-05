@@ -15,6 +15,5 @@ A leaf node is a node with no children.
 
 ---
 
-We can see that this problem is a combo of tree + DP solution. For DP we know that we need to use backtracking to be able traverse all the nodes.
-In case of tree we need to traverse both left and right child. Since a node has 2 children so when we push a node in the data structure maintaining current, we can pop it out only after both the sub trees have been traversed. => only thing to keep track of
-Rest solution is same the target sum solution
+We need to traverse a path till we reach the leaf node. At each node we will add the val to current path val => `current=current*10 + root.val`
+Once leaf node reached we will have the required value for the path, thus add it to the final ans
