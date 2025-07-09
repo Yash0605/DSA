@@ -1,4 +1,5 @@
 # Find if Path Exists in Graph
+
 [Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/description/)
 
 ## Problem Statement
@@ -12,3 +13,5 @@ Given edges and the integers n, source, and destination, return true if there is
 ## Solution Explanation
 
 Basic Graph Problem => can be solved using **adjacency matrix/list** and using **either BFS or DFS Traversal**
+
+Prac 2 => missed to add visited => not able to determine when to use visited list but able to grasp it now => need to do a dry run from which we can see that we will get a loop since we have a bidirectional graph
