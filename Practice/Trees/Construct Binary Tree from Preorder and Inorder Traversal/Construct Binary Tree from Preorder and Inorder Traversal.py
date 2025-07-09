@@ -1,41 +1,57 @@
 # Definition for a binary tree node.
-# class TreeNode:
+# class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def get_root_index(self, inorder, val):
+class Solution(object):
+    def buildTree(self, preorder, inorder):
+        """
+        :type preorder: List[int]
+        :type inorder: List[int]
+        :rtype: Optional[TreeNode]
+        """
+        if len(preorder) == 1:
+            return TreeNode(preorder[0])
+
+        inorderIndexMap = {}
+
         for i in range(len(inorder)):
-            if val == inorder[i]:
-                return i
+            currentElement = inorder[i]
+            inorderIndexMap[currentElement] = i
 
-        return -1
+        def buildTreeHelper(
+            preorder, inorder, preorderStart, preorderEnd, inorderStart, inorderEnd
+        ):
+            # base case
+            if preorderStart > preorderEnd or inorderStart > inorderEnd:
+                return None
 
-    def helper(self, preorder, pre_start, pre_end, inorder, in_start, in_end):
-        # base case
-        if pre_start > pre_end or in_start > in_end:
-            return None
+            root = TreeNode(preorder[preorderStart])
+            inorderRootIndex = inorderIndexMap[preorder[preorderStart]]
+            leftSubtreeLength = inorderRootIndex - inorderStart
 
-        root = TreeNode(val=preorder[pre_start])
-        idx = self.get_root_index(inorder, preorder[pre_start])
-        nums_in_left = idx - in_start
+            root.left = buildTreeHelper(
+                preorder,
+                inorder,
+                preorderStart + 1,
+                preorderStart + leftSubtreeLength,
+                inorderStart,
+                inorderRootIndex - 1,
+            )
+            root.right = buildTreeHelper(
+                preorder,
+                inorder,
+                preorderStart + leftSubtreeLength + 1,
+                preorderEnd,
+                inorderRootIndex + 1,
+                inorderEnd,
+            )
 
-        root.left = self.helper(
-            preorder,
-            pre_start + 1,
-            pre_start + nums_in_left,
-            inorder,
-            in_start,
-            idx - 1,
+            return root
+
+        return buildTreeHelper(
+            preorder, inorder, 0, len(preorder) - 1, 0, len(inorder) - 1
         )
-        root.right = self.helper(
-            preorder, pre_start + nums_in_left + 1, pre_end, inorder, idx + 1, in_end
-        )
-
-        return root
-
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        # for better TC create a hashmap/dictionary of inorder
-        # to get the index of root in O(1) time
-        return self.helper(preorder, 0, len(preorder) - 1, inorder, 0, len(inorder) - 1)
+# Time Complexity: O(n) where n is the number of nodes in the tree.
+# Space Complexity: O(n) for the inorderIndexMap and the recursion stack.
