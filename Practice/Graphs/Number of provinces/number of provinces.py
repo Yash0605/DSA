@@ -19,3 +19,7 @@ class Solution:
                 self.checkNeighbours(isConnected, visited_cities, i, n)
 
         return provinces
+
+
+# Time Complexity: O(n^2) where n is the number of cities, as we traverse the adjacency matrix.
+# Space Complexity: O(n) for the visited list.
