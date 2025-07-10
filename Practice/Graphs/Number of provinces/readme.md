@@ -20,3 +20,12 @@ We need to DFS as we need to check all the connected nodes for a particular node
 > Prac2
 
 We only need to mark the nodes as visited and traverse all the nodes to track the components => basic dfs
+Both DFS and BFS work because the input graph is undirected and represented as an adjacency matrix.
+
+Each time you start a new BFS or DFS from an unvisited node, you discover an entire connected component (or "province").
+
+The only difference is the order of traversal:
+
+DFS uses a stack (or recursion) and goes deep before going wide.
+
+BFS uses a queue and explores neighbors level by level.
