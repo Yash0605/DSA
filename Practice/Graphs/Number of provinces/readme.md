@@ -1,4 +1,5 @@
 # Number of Provinces
+
 [Number of Provinces](https://leetcode.com/problems/number-of-provinces/description/)
 
 ## Problem Statement
@@ -13,5 +14,9 @@ Return the total number of provinces.
 
 ## Solution Explanation
 
-We need to be aware that we can have components in this case. We need to traverse each node and update the num of province everytime we come across a disconnected node.
+We need to be aware that we can have `components` in this case. We need to traverse each node and update the num of province everytime we come across a disconnected node.
 We need to DFS as we need to check all the connected nodes for a particular node so go deep considering each node rather than traverse breadth wise.
+
+> Prac2
+
+We only need to mark the nodes as visited and traverse all the nodes to track the components => basic dfs
