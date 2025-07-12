@@ -23,10 +23,10 @@ class Solution:
         root.left = self.helper(
             inorder,
             in_start,
-            idx-1,
+            idx - 1,
             postorder,
             post_start,
-            post_start + nums_in_left-1,
+            post_start + nums_in_left - 1,
             in_idx,
         )
         root.right = self.helper(
@@ -35,7 +35,7 @@ class Solution:
             in_end,
             postorder,
             post_start + nums_in_left,
-            post_end-1,
+            post_end - 1,
             in_idx,
         )
 
@@ -50,3 +50,7 @@ class Solution:
         return self.helper(
             inorder, 0, len(inorder) - 1, postorder, 0, len(postorder) - 1, in_idx
         )
+
+
+# Time Complexity: O(n)
+# Space Complexity: O(n)
