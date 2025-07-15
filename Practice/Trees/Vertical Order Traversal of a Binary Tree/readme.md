@@ -1,4 +1,5 @@
 # Vertical Order Traversal of a Binary Tree
+
 [Link](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/description/)
 
 ## Problem Statement
@@ -20,7 +21,10 @@ So sorted is the best option, it performs most of the operation in C so might be
 Practically: sorted() is often slightly faster because it does the conversion and sorting in one highly optimized C-level operation, whereas the two-step approach incurs additional Python-level overhead.
 Timsort (which both sorted() and list.sort() use) takes advantage of existing order (runs) in the data. Sometimes the keys view may already be nearly sorted, and the sorted() call can take advantage of that. When you explicitly convert to a list first, you may lose some of that benefit if you’re not careful (although in most cases it would still work similarly).
 
-
-## Time Complexity: O(n)
+## Time Complexity: O(n log n)
 
 ## Space Complexity: O(n)
+
+`Prac 2`:
+Knew the logic to be used => missed if keys are sorted in defaultdict => these are not sorted so we need to sort them explicitly
+then sort the values as well => no need to sort only on the verticla order as we can have the case where 2 nodes have the same vertical order then we need to sort based on the node values

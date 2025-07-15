@@ -43,3 +43,6 @@ class Solution:
             ans.append(temp[:])
 
         return ans
+    
+# Time Complexity: O(n log n) - due to sorting of the values in the final_dict
+# Space Complexity: O(n) - for the final_dict and ans list
