@@ -24,6 +24,7 @@ This is only for visualization, actual sol will not require us to form any adjac
 `Prac 2`
 
 Used Brute Force DFS => checked for all the 10 digits for digits other than first digit => This means in the worst case Time Complexity=O(9⋅10^n−1 )
+where as for optimized dfs its 2^n as we explore only 2 branches everytime
 
 ```python
 for i in range(10):
