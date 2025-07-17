@@ -20,3 +20,7 @@ Return the final sum
 ## Time Complexity: O(n)
 
 ## Space Complexity: O(n) - If temp used, can be solved without this as well so O(1)
+
+`Prac 2`:
+
+Knew level order traversal will be used but did not optimize that we can calculate the sum in the same traversal where we populate the queue => used extra temp list which was not required.
