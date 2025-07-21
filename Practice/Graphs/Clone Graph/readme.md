@@ -1,4 +1,5 @@
 # Clone Graph
+
 [Clone Graph](https://leetcode.com/problems/clone-graph/description/)
 
 ## Problem Statement
@@ -10,8 +11,8 @@ Return a deep copy (clone) of the graph.
 Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
 
 class Node {
-    public int val;
-    public List<Node> neighbors;
+public int val;
+public List<Node> neighbors;
 }
 
 Test case format:
@@ -27,8 +28,13 @@ The given node will always be the first node with val = 1. You must return the c
 This will be basic DFS traversal where for each node we will need to create a new node and then recurse to create all the neighbor nodes and thelink them togethere.
 
 The only problem here is **how to keep track of visited nodes**.
->For this we can **maintain a hashmap/ dictionary** which will store the given node as key and newly cloned node as the value. Now when we reach a neighbor we can check if the neighbor has already been cloned or not. We will have following 2 cases.
+
+> For this we can **maintain a hashmap/ dictionary** which will store the given node as key and newly cloned node as the value. Now when we reach a neighbor we can check if the neighbor has already been cloned or not. We will have following 2 cases.
 
 1)**If the neighbor has not been cloned**, we will call the recursive function which we will clone the node and its neighbor and link the cloned neighbor to the cloned node.
 
 2)**If the neighbor has been cloned**, we only need to link the cloned neighbor node to the newly cloned node.
+
+`Prac 2`:
+
+was able to come up with the DFS logic and hashmap to store the mapping so that we can kepp track of visited nodes but used node.val as key instead of the node => need to consider the node in case the values are not unique.
