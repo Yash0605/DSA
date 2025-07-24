@@ -1,4 +1,5 @@
 # Is Graph Bipartite?
+
 [Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/description/)
 
 ## Problem Statement
@@ -15,7 +16,7 @@ Return true if and only if it is bipartite.
 
 ## Solution Explanation
 
-A graph is bipartite if the nodes can be partitioned into two independent sets A and B such that every edge in the graph connects a node in set A and a node in set B. Eg. if we go on to color each node with color a or b. Then every alternate node should have a different color. If the 2 nodes connected via edge has the same color then the graph is not Bipartite. 
+A graph is bipartite if the nodes can be partitioned into two independent sets A and B such that every edge in the graph connects a node in set A and a node in set B. Eg. if we go on to color each node with color a or b. Then every alternate node should have a different color. If the 2 nodes connected via edge has the same color then the graph is not Bipartite.
 In the following example we can color 0 with Blue, 1 with Red, 2 with Blue and 3 with Red. So none of the nodes with same color are conected via edge hence Bipartite.
 
 ![Bipartite Graph](https://assets.leetcode.com/uploads/2020/10/21/bi1.jpg)
@@ -27,3 +28,8 @@ While traversing we have 2 cases:
 1)**Node has not been visited**. In this case we can mark the node with a color different than the neighbor node. i.e If neighbor node had color 1 we will color this as 2.
 
 2)**Node has been visited**. In this case we need to check if the node has a different color than the neighbor node. i.e If neighbor node had color 1 it should have 2. If both the nodes have same color then this cannot be a bipartite graph, return False
+
+## `Prac 2`:
+
+Was able to come up with the logic where we can have a visitedNodes list which we can initialize with a -1 to mark them as unvisited and use 0 and 1 to toggle the logic.
+Missed on the conditions of how to check the colors and when to return False. This cand be done is single pass => but was not sure while implementing if needs to be done is single pass or update the colors first and then check if bipartite or not
