@@ -1,5 +1,6 @@
 # Validate Binary Search Tree
-[Link](https://leetcode.com/problems/validate-binary-search-tree/description/)
+
+[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
 
 ## Problem Statement
 
@@ -15,13 +16,18 @@ Both the left and right subtrees must also be binary search trees.
 
 We will use the Binary Search Tree basics that **left child is smaller than the root and right child is greater than the root**.
 
-We will use ranges to determine if the current node is a valid node. We can think of an approach where we only check against the parent node but this will fail, why? 
-If we check only against the parent node then we do not have the visibilty in the actual range of values a node can have. 
->Suppose root node value is 5 and left child node value is 2. Now if for left's child node we only check with left node's val i.e 2 then its right child can have any value > 2 and we may think it to be valid but clearly we cannot have any value > 2, it is limited by root node's value which is 5. So we need to maintain a range, as in this case the range for the left node's right child will be (2,5)
+We will use ranges to determine if the current node is a valid node. We can think of an approach where we only check against the parent node but this will fail, why?
+If we check only against the parent node then we do not have the visibilty in the actual range of values a node can have.
 
+> Suppose root node value is 5 and left child node value is 2. Now if for left's child node we only check with left node's val i.e 2 then its right child can have any value > 2 and we may think it to be valid but clearly we cannot have any value > 2, it is limited by root node's value which is 5. So we need to maintain a range, as in this case the range for the left node's right child will be (2,5)
 
 Initially for the left subtree the values can be present in the range (-inf,root.val)
 
 Similarly for the right subtree the values can be present in the range (root.val, inf)
 
 Following this as we can down the subtrees, the ranges will change accordingly for each node, based on the parent node and root node values.
+
+## `Prac 2`
+
+Knew that we need to check the node value in a range => for root the range will be -inf to inf. For left child -inf to root and for right child it will be root to inf.
+Once this logic is know solution is simple!
