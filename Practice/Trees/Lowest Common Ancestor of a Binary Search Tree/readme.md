@@ -1,4 +1,5 @@
 # Lowest Common Ancestor of a Binary Search Tree
+
 [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/)
 
 ## Problem Statement
@@ -13,10 +14,15 @@ We will use the Binary Search Tree basics that **left child is smaller than the 
 
 Following this we can have these cases:
 
-1) Given nodes can both be on the left subtree => Traverse the Left sub tree till both the nodes are in diff sub trees => then return this node
+1. Given nodes can both be on the left subtree => Traverse the Left sub tree till both the nodes are in diff sub trees => then return this node
 
-2) Given nodes can both be on the right subtree => Traverse the Right sub tree till both the nodes are in diff sub trees => then return this node
+2. Given nodes can both be on the right subtree => Traverse the Right sub tree till both the nodes are in diff sub trees => then return this node
 
-3) One of the given nodes is the ancestor of another => Return the ancestor node
+3. One of the given nodes is the ancestor of another => Return the ancestor node
 
-4) Both nodes are in diff sub trees => return the root node.
+4. Both nodes are in diff sub trees => return the root node.
+
+## `Prac2`
+
+Knew both the solutions i.e for the LCA in Binary tree and LCA in BST. BST is easier we just need to check based on the vals which subtrees the node will be part of.
+Iterative solution may be better if space is a concern => need to remember this as well might help in interviews!
