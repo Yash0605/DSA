@@ -50,3 +50,40 @@ class Solution:
                     queue.append((neighbor, currentDistance + 1))
 
         return 0
+
+
+class Solution(object):
+    def ladderLength(self, beginWord, endWord, wordList):
+        """
+        :type beginWord: str
+        :type endWord: str
+        :type wordList: List[str]
+        :rtype: int
+        """
+
+        if endWord not in wordList:
+            return 0
+
+        queue = deque()
+        queue.append((beginWord, 1))
+        wordSet = set(wordList)
+
+        while queue:
+            current, distance = queue.popleft()
+
+            if current == endWord:
+                return distance
+
+            charList = list(current)
+
+            for i in range(len(charList)):
+                for j in letters:
+                    charList[i] = j
+                    newWord = "".join(charList)
+                    if newWord in wordSet:
+                        queue.append((newWord, distance + 1))
+                        wordSet.remove(newWord)
+
+                charList = list(current)
+
+        return 0

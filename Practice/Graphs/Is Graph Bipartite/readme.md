@@ -33,3 +33,22 @@ While traversing we have 2 cases:
 
 Was able to come up with the logic where we can have a visitedNodes list which we can initialize with a -1 to mark them as unvisited and use 0 and 1 to toggle the logic.
 Missed on the conditions of how to check the colors and when to return False. This cand be done is single pass => but was not sure while implementing if needs to be done is single pass or update the colors first and then check if bipartite or not
+
+## Prac 3:
+
+knew of the logic but again missed on when to return False => was able to simplify the logic compared to before
+
+```python
+def dfs(node, color):
+            if node in colorMap:
+                return colorMap[node] == color
+
+            colorMap[node] = color
+
+            for neighbor in graph[node]:
+                if not dfs(neighbor, not color):
+                    return False
+
+            return True
+
+```
