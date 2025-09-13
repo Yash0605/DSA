@@ -4,7 +4,7 @@ We’ll structure them week-wise and difficulty-wise:
 
 📅 Week 1 (Day 1–7) → Arrays & Strings (14 Problems)
 
-Easy (6): Two Sum, Valid Anagram, Best Time to Buy and Sell Stock, Move Zeroes, Merge Sorted Array, Plus One
+Easy (6): Two Sum, Valid Anagram, Best Time to Buy and Sell Stock, Move Zeroes, Merge Sorted Array, Plus One - done
 
 Medium (6): 3Sum, Container With Most Water, Product of Array Except Self, Subarray Sum Equals K, Longest Substring Without Repeating Characters, Set Matrix Zeroes
 
